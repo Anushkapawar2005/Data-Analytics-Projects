@@ -65,7 +65,7 @@ This project demonstrates how raw healthcare data can be transformed into an int
 
 ## 📷 Dashboard Preview
 
-![Healthcare Analytics Dashboard](Images/dashboard.png)
+![Healthcare Analytics Dashboard](Images/Dashboard.png)
 
 ---
 
