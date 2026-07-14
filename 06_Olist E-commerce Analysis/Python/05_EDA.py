@@ -35,14 +35,101 @@ orders["Delivery_Days"] = (
     orders["order_purchase_timestamp"]
 ).dt.days
 
-status = orders["order_status"].value_counts()
 
+
+# Analysis 1 – Order Status Distribution
+status = orders["order_status"].value_counts()
 print(status)
 
-status.plot(kind="bar")
+# status.plot(kind="bar")
 
-plt.title("Order Status Distribution")
-plt.xlabel("Order Status")
-plt.ylabel("Number of Orders")
+# plt.title("Order Status Distribution")
+# plt.xlabel("Order Status")
+# plt.ylabel("Number of Orders")
 
-plt.show()
+# plt.show()
+
+
+# Analysis 2 – Monthly Orders
+monthly_orders = (
+    orders.groupby("Purchase_Month")
+    .size()
+)
+# print(monthly_orders)
+
+# monthly_orders.plot(kind="line")
+
+# plt.title("Monthly Orders")
+
+# plt.xlabel("Month")
+
+# plt.ylabel("Orders")
+
+# plt.show()
+
+
+
+# Analysis 3 – Weekday Orders
+weekday_orders = (
+    orders["Weekday"]
+    .value_counts()
+)
+print(weekday_orders)
+
+# weekday_orders.plot(kind="bar")
+# plt.title("Orders by Weekday")
+# plt.xlabel("Weekday")
+# plt.ylabel("Orders")
+# plt.show()
+
+
+
+# Analysis 4 – Delivery Days
+# print(orders["Delivery_Days"].describe())
+# orders["Delivery_Days"].plot(kind="hist", bins=20)
+
+# plt.title("Delivery Days Distribution")
+
+# plt.xlabel("Days")
+
+# plt.show()
+
+
+
+# Analysis 5 – Orders Per Year
+year_orders = (
+    orders.groupby("Purchase_Year")
+    .size()
+)
+
+print(year_orders)
+
+# year_orders.plot(kind="bar")
+
+# plt.title("Orders Per Year")
+
+# plt.xlabel("Year")
+
+# plt.ylabel("Orders")
+
+# plt.show()
+
+
+
+# Analysis 6 – Delivery Delay
+orders["Delivery_Delay"] = (
+    orders["order_delivered_customer_date"] -
+    orders["order_estimated_delivery_date"]
+).dt.days
+
+print(
+    orders["Delivery_Delay"].describe()
+)
+
+monthly_orders.to_csv(
+    "output/monthly_orders.csv"
+)
+
+weekday_orders.to_csv(
+    "output/weekday_orders.csv"
+)
