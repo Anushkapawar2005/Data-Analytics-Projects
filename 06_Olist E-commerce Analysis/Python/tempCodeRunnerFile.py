@@ -1,9 +1,7 @@
-year_orders.plot(kind="bar")
+payment_counts.plot(kind="bar")
 
-# plt.title("Orders Per Year")
-
-# plt.xlabel("Year")
-
+# plt.title("Payment Methods")
+# plt.xlabel("Payment Type")
 # plt.ylabel("Orders")
 
 # plt.show()
