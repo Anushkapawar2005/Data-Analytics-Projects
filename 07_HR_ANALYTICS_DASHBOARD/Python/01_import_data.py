@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import os
 
 engine = create_engine(
-    "mysql+pymysql://root:2005anu@localhost:3306/hr_analytics"
+    "mysql+pymysql://root:2005anu@localhost:3307/hr_analytics"
 )
 
 folder_path = r"E:\Data Analyst\DataAnalystProjects\07_HR_ANALYTICS_DASHBOARD\Data\raw"
